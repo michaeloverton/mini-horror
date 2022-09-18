@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PortalTeleporter : MonoBehaviour
 {
@@ -19,18 +20,13 @@ public class PortalTeleporter : MonoBehaviour
 
             if(dotProduct < 0f)
             {
-                Debug.Log("teleporting!");
                 float rotationDiff = -Quaternion.Angle(transform.rotation, receiver.rotation);
                 rotationDiff += 180;
-                player.Rotate(Vector3.up, rotationDiff);
+                // player.Rotate(Vector3.up, rotationDiff);
+                player.GetComponent<FirstPersonController>().RotateCharacter(0, rotationDiff);
 
                 Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
-                Debug.Log(receiver.position);
-                Debug.Log(positionOffset);
                 player.position = receiver.position + positionOffset;
-                // player.position = new Vector3(100,100,100);
-
-                // player.GetComponent<Rigidbody>().MovePosition(receiver.position + positionOffset);
 
                 playerIsOverlapping = false;
             }
@@ -39,7 +35,6 @@ public class PortalTeleporter : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("enter!");
         if(other.tag == "Player")
         {
             playerIsOverlapping = true;

@@ -249,6 +249,12 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
 
+        public void RotateCharacter(float xRot, float yRot)
+        {
+            m_MouseLook.LookRotation(transform, m_Camera.transform, xRot, yRot);
+        }
+
+
         private void OnControllerColliderHit(ControllerColliderHit hit)
         {
             Rigidbody body = hit.collider.attachedRigidbody;
