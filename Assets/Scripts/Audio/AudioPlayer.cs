@@ -8,7 +8,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 {
     public class AudioPlayer : MonoBehaviour
     {
-        [SerializeField] private AudioManager audioManager;
         [SerializeField] private string footstepEventName;
         EventInstance footstepEventInstance;
         [SerializeField] private string jumpEventName;
@@ -16,33 +15,16 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private string landEventName;
         EventInstance landEventInstance;
 
-        void Awake()
-        {
-            audioManager._onFootstepTypeTriggerEnter += SetFootstepType;
-        }
-
         void Start()
         {
             footstepEventInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + footstepEventName);
             jumpEventInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + jumpEventName);
             landEventInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + landEventName);
-
-            // Default to wet footsteps.
-            footstepEventInstance.setParameterByName("Type", 2);
-            jumpEventInstance.setParameterByName("Type", 2);
-            landEventInstance.setParameterByName("Type", 2);
         }
 
         public void PlayFootstep()
         {
             footstepEventInstance.start();
-        }
-
-        public void SetFootstepType(float type)
-        {
-            footstepEventInstance.setParameterByName("Type", type);
-            jumpEventInstance.setParameterByName("Type", type);
-            landEventInstance.setParameterByName("Type", type);
         }
 
         public void PlayJump()

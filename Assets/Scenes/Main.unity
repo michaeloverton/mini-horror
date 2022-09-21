@@ -829,7 +829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 708715092}
-  footstepType: 1
+  footstepType: 0
 --- !u!1 &174954966
 GameObject:
   m_ObjectHideFlags: 0
@@ -3116,6 +3116,7 @@ GameObject:
   - component: {fileID: 708715093}
   - component: {fileID: 708715092}
   - component: {fileID: 708715094}
+  - component: {fileID: 708715095}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -3135,6 +3136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c65ecece677a84458a099390f4d0b81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stepSurfaceParam: stepSurface
 --- !u!4 &708715093
 Transform:
   m_ObjectHideFlags: 0
@@ -3163,6 +3165,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicReverbSnapshot: Reverb
+--- !u!114 &708715095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708715091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 259f31981005a16409e33b403437ba55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ambienceEventName: ambience
 --- !u!1 &773665111
 GameObject:
   m_ObjectHideFlags: 0
@@ -6590,7 +6605,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 708715092}
-  footstepType: 0
+  footstepType: 2
 --- !u!65 &1594729929
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7218,7 +7233,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a534087476aae42a2054501bc73968, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioManager: {fileID: 708715092}
   footstepEventName: footstep
   jumpEventName: jump
   landEventName: land
@@ -7543,7 +7557,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioManager: {fileID: 708715092}
-  footstepType: 2
+  footstepType: 1
 --- !u!65 &2088063128
 BoxCollider:
   m_ObjectHideFlags: 0

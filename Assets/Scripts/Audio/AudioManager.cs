@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    // Footstep events.
-    public delegate void AudioTriggerParameterAction(float footstepType);
-    public event AudioTriggerParameterAction _onFootstepTypeTriggerEnter;
+    [SerializeField] private string stepSurfaceParam;
 
-    public void OnFootstepTypeTriggerEnter(float footstepType)
-    {
-        if (_onFootstepTypeTriggerEnter != null) { _onFootstepTypeTriggerEnter(footstepType); }
+    public void SetStepSurface(int surfaceIndex) {
+        FMOD.RESULT result = FMODUnity.RuntimeManager.StudioSystem.setParameterByName(stepSurfaceParam, surfaceIndex);
+        if(result != FMOD.RESULT.OK) Debug.LogError(result);
     }
 }

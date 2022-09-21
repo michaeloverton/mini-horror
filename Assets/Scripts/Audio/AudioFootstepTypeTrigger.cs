@@ -5,10 +5,10 @@ using UnityEngine;
 public class AudioFootstepTypeTrigger : MonoBehaviour
 {
     [SerializeField] private AudioManager audioManager;
-    [SerializeField] private float footstepType;
+    [SerializeField] private int footstepType;
 
     void OnTriggerEnter(Collider other)
     {
-        audioManager.OnFootstepTypeTriggerEnter(footstepType);
+        audioManager.SetStepSurface(footstepType);
     }
 }
