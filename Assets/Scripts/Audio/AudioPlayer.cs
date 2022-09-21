@@ -26,6 +26,9 @@ namespace UnityStandardAssets.Characters.FirstPerson
             footstepEventInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + footstepEventName);
             jumpEventInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + jumpEventName);
             landEventInstance = FMODUnity.RuntimeManager.CreateInstance("event:/" + landEventName);
+
+            // Default to wet footsteps.
+            footstepEventInstance.setParameterByName("Type", 2);
         }
 
         public void PlayFootstep()
