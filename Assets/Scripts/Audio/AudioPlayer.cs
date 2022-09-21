@@ -6,14 +6,20 @@ using FMOD.Studio;
 #pragma warning disable 618, 649
 namespace UnityStandardAssets.Characters.FirstPerson
 {
-    public class PlayerAudio : MonoBehaviour
+    public class AudioPlayer : MonoBehaviour
     {
+        [SerializeField] private AudioManager audioManager;
         [SerializeField] private string footstepEventName;
         EventInstance footstepEventInstance;
         [SerializeField] private string jumpEventName;
         EventInstance jumpEventInstance;
         [SerializeField] private string landEventName;
         EventInstance landEventInstance;
+
+        void Awake()
+        {
+            audioManager._onFootstepTypeTriggerEnter += SetFootstepType;
+        }
 
         void Start()
         {
@@ -27,7 +33,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
             footstepEventInstance.start();
         }
 
-        public void SetFootstepType(int type)
+        public void SetFootstepType(float type)
         {
             footstepEventInstance.setParameterByName("Type", type);
         }

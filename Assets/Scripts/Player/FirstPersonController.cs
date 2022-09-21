@@ -25,13 +25,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private CurveControlledBob m_HeadBob = new CurveControlledBob();
         [SerializeField] private LerpControlledBob m_JumpBob = new LerpControlledBob();
         [SerializeField] private float m_StepInterval;
-        // [SerializeField] private AudioClip[] m_FootstepSounds;    // an array of footstep sounds that will be randomly selected from.
-        
-        // [SerializeField] private StudioEventEmitter jumpSoundEvent;
-        // [SerializeField] private StudioEventEmitter landSoundEvent;
-        // [SerializeField] private StudioEventEmitter footstepSoundEvent;
 
-        [SerializeField] private PlayerAudio playerAudio;
+        [SerializeField] private AudioPlayer playerAudio;
 
         // Flashlight
         [SerializeField] private Light flashLight;
