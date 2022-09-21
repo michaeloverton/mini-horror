@@ -29,6 +29,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             // Default to wet footsteps.
             footstepEventInstance.setParameterByName("Type", 2);
+            jumpEventInstance.setParameterByName("Type", 2);
+            landEventInstance.setParameterByName("Type", 2);
         }
 
         public void PlayFootstep()
@@ -39,6 +41,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         public void SetFootstepType(float type)
         {
             footstepEventInstance.setParameterByName("Type", type);
+            jumpEventInstance.setParameterByName("Type", type);
+            landEventInstance.setParameterByName("Type", type);
         }
 
         public void PlayJump()
